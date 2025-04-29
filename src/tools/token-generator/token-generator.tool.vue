@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
 import { createToken } from './token-generator.service';
 import { useCopy } from '@/composable/copy';
 import { useQueryParam } from '@/composable/queryParams';
@@ -9,8 +10,16 @@ const withUppercase = useQueryParam({ name: 'uppercase', defaultValue: true });
 const withLowercase = useQueryParam({ name: 'lowercase', defaultValue: true });
 const withNumbers = useQueryParam({ name: 'numbers', defaultValue: true });
 const withSymbols = useQueryParam({ name: 'symbols', defaultValue: false });
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
+const markdownHtml = ref('');
+
+onMounted(async () => {
+  // 假设你的MD文件位于同目录下
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+});
 const [token, refreshToken] = computedRefreshable(() =>
   createToken({
     length: length.value,
@@ -73,6 +82,9 @@ const { copy } = useCopy({ source: token, text: t('tools.token-generator.copied'
           {{ t('tools.token-generator.button.refresh') }}
         </c-button>
       </div>
+    </c-card>
+    <c-card>
+      <div v-html="markdownHtml" />
     </c-card>
   </div>
 </template>
