@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import showdown from 'showdown'; // 新增showdown引入
+import { watchEffect } from 'vue';
 import { createToken } from './token-generator.service';
 import { useCopy } from '@/composable/copy';
 import { useQueryParam } from '@/composable/queryParams';
@@ -14,12 +15,15 @@ const { t, locale } = useI18n();
 
 const markdownHtml = ref('');
 
-onMounted(async () => {
-  // 假设你的MD文件位于同目录下
+const loadMarkdown = async () => {
   const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
 });
+
 const [token, refreshToken] = computedRefreshable(() =>
   createToken({
     length: length.value,
@@ -64,15 +68,8 @@ const { copy } = useCopy({ source: token, text: t('tools.token-generator.copied'
         <n-slider v-model:value="length" :step="1" :min="1" :max="512" />
       </n-form-item>
 
-      <c-input-text
-        v-model:value="token"
-        multiline
-        :placeholder="t('tools.token-generator.tokenPlaceholder')"
-        readonly
-        rows="3"
-        autosize
-        class="token-display"
-      />
+      <c-input-text v-model:value="token" multiline :placeholder="t('tools.token-generator.tokenPlaceholder')" readonly
+        rows="3" autosize class="token-display" />
 
       <div mt-5 flex justify-center gap-3>
         <c-button @click="copy()">

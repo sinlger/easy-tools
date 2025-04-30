@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
 import { compareSync, hashSync } from 'bcryptjs';
 import { useThemeVars } from 'naive-ui';
 import { useCopy } from '@/composable/copy';
@@ -13,20 +14,24 @@ const { copy } = useCopy({ source: hashed, text: 'Hashed string copied to the cl
 const compareString = ref('');
 const compareHash = ref('');
 const compareMatch = computed(() => compareSync(compareString.value, compareHash.value));
+const { t, locale } = useI18n();
+
+const markdownHtml = ref('');
+
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/bcrypt.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
   <c-card title="Hash">
-    <c-input-text
-      v-model:value="input"
-      placeholder="Your string to bcrypt..."
-      raw-text
-      label="Your string: "
-      label-position="left"
-      label-align="right"
-      label-width="120px"
-      mb-2
-    />
+    <c-input-text v-model:value="input" placeholder="Your string to bcrypt..." raw-text label="Your string: "
+      label-position="left" label-align="right" label-width="120px" mb-2 />
     <n-form-item label="Salt count: " label-placement="left" label-width="120">
       <n-input-number v-model:value="saltCount" placeholder="Salt rounds..." :max="100" :min="0" w-full />
     </n-form-item>
@@ -54,6 +59,9 @@ const compareMatch = computed(() => compareSync(compareString.value, compareHash
         </div>
       </n-form-item>
     </n-form>
+  </c-card>
+  <c-card>
+    <div v-html="markdownHtml" />
   </c-card>
 </template>
 

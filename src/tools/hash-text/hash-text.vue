@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
+import { watchEffect } from 'vue';
 import type { lib } from 'crypto-js';
 import { MD5, RIPEMD160, SHA1, SHA224, SHA256, SHA3, SHA384, SHA512, enc } from 'crypto-js';
 
 import InputCopyable from '../../components/InputCopyable.vue';
 import { convertHexToBin } from './hash-text.service';
 import { useQueryParam } from '@/composable/queryParams';
-
+const { t, locale } = useI18n();
 const algos = {
   MD5,
   SHA1,
@@ -32,20 +34,27 @@ function formatWithEncoding(words: lib.WordArray, encoding: Encoding) {
 }
 
 const hashText = (algo: AlgoNames, value: string) => formatWithEncoding(algos[algo](value), encoding.value);
+const markdownHtml = ref('');
+
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/hash-text.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
   <div>
     <c-card>
-      <c-input-text v-model:value="clearText" multiline raw-text placeholder="Your string to hash..." rows="3" autosize autofocus label="Your text to hash:" />
+      <c-input-text v-model:value="clearText" multiline raw-text placeholder="Your string to hash..." rows="3" autosize
+        autofocus label="Your text to hash:" />
 
       <n-divider />
 
-      <c-select
-        v-model:value="encoding"
-        mb-4
-        label="Digest encoding"
-        :options="[
+      <c-select v-model:value="encoding" mb-4 label="Digest encoding" :options="[
           {
             label: 'Binary (base 2)',
             value: 'Bin',
@@ -62,8 +71,7 @@ const hashText = (algo: AlgoNames, value: string) => formatWithEncoding(algos[al
             label: 'Base64url (base 64 with url safe chars)',
             value: 'Base64url',
           },
-        ]"
-      />
+        ]" />
 
       <div v-for="algo in algoNames" :key="algo" style="margin: 5px 0">
         <n-input-group>
@@ -73,6 +81,9 @@ const hashText = (algo: AlgoNames, value: string) => formatWithEncoding(algos[al
           <InputCopyable :value="hashText(algo, clearText)" readonly />
         </n-input-group>
       </div>
+    </c-card>
+    <c-card>
+      <div v-html="markdownHtml" />
     </c-card>
   </div>
 </template>
