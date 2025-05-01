@@ -7,8 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    2: typeof import('./src/tools/token-generator/language/token-generator.no copy 2.md')['default']
-    3: typeof import('./src/tools/token-generator/language/token-generator.no copy 3.md')['default']
     '404.page': typeof import('./src/pages/404.page.vue')['default']
     About: typeof import('./src/pages/About.vue')['default']
     App: typeof import('./src/App.vue')['default']
@@ -56,7 +54,6 @@ declare module 'vue' {
     ColoredCard: typeof import('./src/components/ColoredCard.vue')['default']
     CommandPalette: typeof import('./src/modules/command-palette/command-palette.vue')['default']
     CommandPaletteOption: typeof import('./src/modules/command-palette/components/command-palette-option.vue')['default']
-    copy: typeof import('./src/tools/token-generator/language/token-generator.no copy.md')['default']
     CrontabGenerator: typeof import('./src/tools/crontab-generator/crontab-generator.vue')['default']
     CSelect: typeof import('./src/ui/c-select/c-select.vue')['default']
     'CSelect.demo': typeof import('./src/ui/c-select/c-select.demo.vue')['default']
@@ -133,6 +130,7 @@ declare module 'vue' {
     MetaTagGenerator: typeof import('./src/tools/meta-tag-generator/meta-tag-generator.vue')['default']
     MimeTypes: typeof import('./src/tools/mime-types/mime-types.vue')['default']
     NavbarButtons: typeof import('./src/components/NavbarButtons.vue')['default']
+    NCode: typeof import('naive-ui')['NCode']
     NCollapseTransition: typeof import('naive-ui')['NCollapseTransition']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDivider: typeof import('naive-ui')['NDivider']
@@ -144,10 +142,10 @@ declare module 'vue' {
     NIcon: typeof import('naive-ui')['NIcon']
     NInputGroup: typeof import('naive-ui')['NInputGroup']
     NInputGroupLabel: typeof import('naive-ui')['NInputGroupLabel']
-    NInputNumber: typeof import('naive-ui')['NInputNumber']
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NMenu: typeof import('naive-ui')['NMenu']
+    NScrollbar: typeof import('naive-ui')['NScrollbar']
     NSlider: typeof import('naive-ui')['NSlider']
     NSwitch: typeof import('naive-ui')['NSwitch']
     NumeronymGenerator: typeof import('./src/tools/numeronym-generator/numeronym-generator.vue')['default']
