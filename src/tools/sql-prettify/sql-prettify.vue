@@ -2,7 +2,17 @@
 import { type FormatOptionsWithLanguage, format as formatSQL } from 'sql-formatter';
 import TextareaCopyable from '@/components/TextareaCopyable.vue';
 import { useStyleStore } from '@/stores/style.store';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const inputElement = ref<HTMLElement>();
 const styleStore = useStyleStore();
 const config = reactive<FormatOptionsWithLanguage>({

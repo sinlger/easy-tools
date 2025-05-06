@@ -2,7 +2,17 @@
 import JSON5 from 'json5';
 import type { UseValidationRule } from '@/composable/validation';
 import { withDefaultOnError } from '@/utils/defaults';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const defaultValue = '{\n\t"hello": [\n\t\t"world"\n\t]\n}';
 const transformer = (value: string) => withDefaultOnError(() => JSON.stringify(JSON5.parse(value), null, 0), '');
 

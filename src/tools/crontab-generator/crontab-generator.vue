@@ -2,6 +2,7 @@
 import cronstrue from 'cronstrue';
 import { isValidCron } from 'cron-validator';
 import { useStyleStore } from '@/stores/style.store';
+import showdown from 'showdown'; // 新增showdown引入
 
 function isCronValid(v: string) {
   return isValidCron(v, { allowBlankDay: true, alias: true, seconds: true });
@@ -105,18 +106,23 @@ const cronValidationRules = [
     message: 'This cron is invalid',
   },
 ];
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/crontab-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
   <c-card>
     <div mx-auto max-w-sm>
-      <c-input-text
-        v-model:value="cron"
-        size="large"
-        placeholder="* * * * *"
-        :validation-rules="cronValidationRules"
-        mb-3
-      />
+      <c-input-text v-model:value="cron" size="large" placeholder="* * * * *" :validation-rules="cronValidationRules"
+        mb-3 />
     </div>
 
     <div class="cron-string">
@@ -169,6 +175,9 @@ const cronValidationRules = [
     </div>
 
     <c-table v-else :data="helpers" />
+  </c-card>
+  <c-card>
+    <div v-html="markdownHtml"></div>
   </c-card>
 </template>
 

@@ -2,7 +2,17 @@
 import verifyPDF from 'pdf-signature-reader';
 import type { SignatureInfo } from './pdf-signature-checker.types';
 import { formatBytes } from '@/utils/convert';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const signatures = ref<SignatureInfo[]>([]);
 const status = ref<'idle' | 'parsed' | 'error' | 'loading'>('idle');
 const file = ref<File | null>(null);

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
 import { Plus, Trash } from '@vicons/tabler';
 import { useStorage } from '@vueuse/core';
 import _ from 'lodash';
@@ -6,7 +7,16 @@ import _ from 'lodash';
 import { arrayToMarkdownTable, computeAverage, computeVariance } from './benchmark-builder.models';
 import DynamicValues from './dynamic-values.vue';
 import { useCopy } from '@/composable/copy';
-
+const { locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/benchmark-builder.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const suites = useStorage('benchmark-builder:suites', [
   { title: 'Suite 1', data: [5, 10] },
   { title: 'Suite 2', data: [8, 12] },
@@ -35,8 +45,8 @@ const results = computed(() => {
       const deltaWithBestMean = mean - bestMean;
       const ratioWithBestMean = bestMean === 0 ? '∞' : round(mean / bestMean);
 
-      const comparisonValues: string
-        = (index !== 0 && bestMean !== mean) ? ` (+${round(deltaWithBestMean)}${cleanUnit} ; x${ratioWithBestMean})` : '';
+      const comparisonValues: string =
+        index !== 0 && bestMean !== mean ? ` (+${round(deltaWithBestMean)}${cleanUnit} ; x${ratioWithBestMean})` : '';
 
       return {
         position: index + 1,
@@ -83,13 +93,8 @@ function copyAsBulletList() {
     <div mb-5 flex flex-1 flex-nowrap justify-center gap-12px>
       <div v-for="(suite, index) of suites" :key="index">
         <c-card style="width: 294px">
-          <c-input-text
-            v-model:value="suite.title"
-            label-position="left"
-            label="Suite name"
-            placeholder="Suite name..."
-            clearable
-          />
+          <c-input-text v-model:value="suite.title" label-position="left" label="Suite name" placeholder="Suite name..."
+            clearable />
 
           <n-divider />
           <n-form-item label="Suite values" :show-feedback="false">
@@ -102,10 +107,8 @@ function copyAsBulletList() {
             <n-icon :component="Trash" depth="3" mr-2 size="18" />
             Delete suite
           </c-button>
-          <c-button
-            variant="text"
-            @click="suites.splice(index + 1, 0, { data: [0], title: `Suite ${suites.length + 1}` })"
-          >
+          <c-button variant="text"
+            @click="suites.splice(index + 1, 0, { data: [0], title: `Suite ${suites.length + 1}` })">
             <n-icon :component="Plus" depth="3" mr-2 size="18" />
             Add suite
           </c-button>
@@ -119,14 +122,12 @@ function copyAsBulletList() {
       <div mx-auto max-w-sm flex justify-center gap-3>
         <c-input-text v-model:value="unit" placeholder="Unit (eg: ms)" label="Unit" label-position="left" mb-4 />
 
-        <c-button
-          @click="
+        <c-button @click="
             suites = [
               { title: 'Suite 1', data: [] },
               { title: 'Suite 2', data: [] },
             ]
-          "
-        >
+          ">
           Reset suites
         </c-button>
       </div>
@@ -143,4 +144,7 @@ function copyAsBulletList() {
       </div>
     </div>
   </div>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>

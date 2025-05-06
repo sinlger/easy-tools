@@ -13,6 +13,7 @@ import {
   snakeCase,
 } from 'change-case';
 import InputCopyable from '../../components/InputCopyable.vue';
+import showdown from 'showdown'; // 新增showdown引入
 
 const baseConfig = {
   stripRegexp: /[^A-Za-zÀ-ÖØ-öø-ÿ]+/gi,
@@ -87,27 +88,49 @@ const inputLabelAlignmentConfig = {
   labelWidth: '120px',
   labelAlign: 'right',
 };
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/case-converter.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
-  <c-card>
-    <c-input-text
-      v-model:value="input"
-      label="Your string:"
-      placeholder="Your string..."
-      raw-text
-      v-bind="inputLabelAlignmentConfig"
-    />
+  <div class="container"> <!-- 新增容器 div -->
+    <div class="card-wrapper">
+      <c-card>
+        <c-input-text v-model:value="input" label="Your string:" placeholder="Your string..." raw-text
+          v-bind="inputLabelAlignmentConfig" />
+        <div my-16px divider />
+        <InputCopyable v-for="format in formats" :key="format.label" :value="format.value" :label="format.label"
+          v-bind="inputLabelAlignmentConfig" mb-1 />
+      </c-card>
+    </div>
 
-    <div my-16px divider />
-
-    <InputCopyable
-      v-for="format in formats"
-      :key="format.label"
-      :value="format.value"
-      :label="format.label"
-      v-bind="inputLabelAlignmentConfig"
-      mb-1
-    />
-  </c-card>
+    <div class="card-wrapper"> <!-- 新增卡片包裹层 -->
+      <c-card>
+        <div v-html="markdownHtml"></div>
+      </c-card>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.card-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+</style>

@@ -1,39 +1,52 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
 import { useBase64 } from '@vueuse/core';
 import type { Ref } from 'vue';
 import { useCopy } from '@/composable/copy';
-import { getExtensionFromMimeType, getMimeTypeFromBase64, previewImageFromBase64, useDownloadFileFromBase64Refs } from '@/composable/downloadBase64';
+import {
+  getExtensionFromMimeType,
+  getMimeTypeFromBase64,
+  previewImageFromBase64,
+  useDownloadFileFromBase64Refs,
+} from '@/composable/downloadBase64';
 import { useValidation } from '@/composable/validation';
 import { isValidBase64 } from '@/utils/base64';
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/base64-file-converter.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 
 const fileName = ref('file');
 const fileExtension = ref('');
 const base64Input = ref('');
-const { download } = useDownloadFileFromBase64Refs(
-  {
-    source: base64Input,
-    filename: fileName,
-    extension: fileExtension,
-  });
+const { download } = useDownloadFileFromBase64Refs({
+  source: base64Input,
+  filename: fileName,
+  extension: fileExtension,
+});
 const base64InputValidation = useValidation({
   source: base64Input,
   rules: [
     {
       message: 'Invalid base 64 string',
-      validator: value => isValidBase64(value.trim()),
+      validator: (value) => isValidBase64(value.trim()),
     },
   ],
 });
 
-watch(
-  base64Input,
-  (newValue, _) => {
-    const { mimeType } = getMimeTypeFromBase64({ base64String: newValue });
-    if (mimeType) {
-      fileExtension.value = getExtensionFromMimeType(mimeType) || fileExtension.value;
-    }
-  },
-);
+watch(base64Input, (newValue, _) => {
+  const { mimeType } = getMimeTypeFromBase64({ base64String: newValue });
+  if (mimeType) {
+    fileExtension.value = getExtensionFromMimeType(mimeType) || fileExtension.value;
+  }
+});
 
 function previewImage() {
   if (!base64InputValidation.isValid) {
@@ -48,8 +61,7 @@ function previewImage() {
       previewContainer.innerHTML = '';
       previewContainer.appendChild(image);
     }
-  }
-  catch (_) {
+  } catch (_) {
     //
   }
 }
@@ -61,8 +73,7 @@ function downloadFile() {
 
   try {
     download();
-  }
-  catch (_) {
+  } catch (_) {
     //
   }
 }
@@ -82,30 +93,14 @@ async function onUpload(file: File) {
   <c-card title="Base64 to file">
     <n-grid cols="3" x-gap="12">
       <n-gi span="2">
-        <c-input-text
-          v-model:value="fileName"
-          label="File Name"
-          placeholder="Download filename"
-          mb-2
-        />
+        <c-input-text v-model:value="fileName" label="File Name" placeholder="Download filename" mb-2 />
       </n-gi>
       <n-gi>
-        <c-input-text
-          v-model:value="fileExtension"
-          label="Extension"
-          placeholder="Extension"
-          mb-2
-        />
+        <c-input-text v-model:value="fileExtension" label="Extension" placeholder="Extension" mb-2 />
       </n-gi>
     </n-grid>
-    <c-input-text
-      v-model:value="base64Input"
-      multiline
-      placeholder="Put your base64 file string here..."
-      rows="5"
-      :validation="base64InputValidation"
-      mb-2
-    />
+    <c-input-text v-model:value="base64Input" multiline placeholder="Put your base64 file string here..." rows="5"
+      :validation="base64InputValidation" mb-2 />
 
     <div flex justify-center py-2>
       <div id="previewContainer" />
@@ -130,6 +125,9 @@ async function onUpload(file: File) {
         Copy
       </c-button>
     </div>
+  </c-card>
+  <c-card>
+    <div v-html="markdownHtml" />
   </c-card>
 </template>
 

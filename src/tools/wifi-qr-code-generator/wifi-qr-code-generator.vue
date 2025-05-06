@@ -5,7 +5,17 @@ import {
   useWifiQRCode,
 } from './useQRCode';
 import { useDownloadFileFromBase64 } from '@/composable/downloadBase64';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const foreground = ref('#000000ff');
 const background = ref('#ffffffff');
 

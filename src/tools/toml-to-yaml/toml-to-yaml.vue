@@ -4,7 +4,17 @@ import { stringify as stringifyToYaml } from 'yaml';
 import { withDefaultOnError } from '../../utils/defaults';
 import { isValidToml } from '../toml-to-json/toml.services';
 import type { UseValidationRule } from '@/composable/validation';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const transformer = (value: string) => value.trim() === '' ? '' : withDefaultOnError(() => stringifyToYaml(parseToml(value)), '');
 
 const rules: UseValidationRule<string>[] = [

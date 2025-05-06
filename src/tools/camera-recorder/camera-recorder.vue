@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import _ from 'lodash';
-
+import showdown from 'showdown'; // 新增showdown引入
 import { useMediaRecorder } from './useMediaRecorder';
 
 interface Media { type: 'image' | 'video'; value: string; createdAt: Date }
@@ -101,6 +101,16 @@ function downloadMedia({ type, value, createdAt }: Media) {
   link.download = `${type}-${createdAt.getTime()}.${type === 'image' ? 'png' : 'webm'}`;
   link.click();
 }
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/camera-recorder.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
@@ -213,5 +223,8 @@ function downloadMedia({ type, value, createdAt }: Media) {
         </div>
       </c-card>
     </div>
+    <c-card>
+      <div v-html="markdownHtml" ></div>
+    </c-card>
   </div>
 </template>

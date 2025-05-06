@@ -1,7 +1,17 @@
 <script setup lang="ts">
 import { useThemeVars } from 'naive-ui';
 import Memo from './regex-memo.content.md';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const themeVars = useThemeVars();
 </script>
 

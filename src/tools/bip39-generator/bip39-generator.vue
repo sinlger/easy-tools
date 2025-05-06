@@ -15,6 +15,7 @@ import {
   spanishWordList,
 } from '@it-tools/bip39';
 import { Copy, Refresh } from '@vicons/tabler';
+import showdown from 'showdown'; // 新增showdown引入
 
 import { useCopy } from '@/composable/copy';
 import { useValidation } from '@/composable/validation';
@@ -22,16 +23,16 @@ import { isNotThrowing } from '@/utils/boolean';
 import { withDefaultOnError } from '@/utils/defaults';
 
 const languages = {
-  'English': englishWordList,
+  English: englishWordList,
   'Chinese simplified': chineseSimplifiedWordList,
   'Chinese traditional': chineseTraditionalWordList,
-  'Czech': czechWordList,
-  'French': frenchWordList,
-  'Italian': italianWordList,
-  'Japanese': japaneseWordList,
-  'Korean': koreanWordList,
-  'Portuguese': portugueseWordList,
-  'Spanish': spanishWordList,
+  Czech: czechWordList,
+  French: frenchWordList,
+  Italian: italianWordList,
+  Japanese: japaneseWordList,
+  Korean: koreanWordList,
+  Portuguese: portugueseWordList,
+  Spanish: spanishWordList,
 };
 
 const entropy = ref(generateEntropy());
@@ -52,11 +53,11 @@ const entropyValidation = useValidation({
   source: entropy,
   rules: [
     {
-      validator: value => value === '' || (value.length <= 32 && value.length >= 16 && value.length % 4 === 0),
+      validator: (value) => value === '' || (value.length <= 32 && value.length >= 16 && value.length % 4 === 0),
       message: 'Entropy length should be >= 16, <= 32 and be a multiple of 4',
     },
     {
-      validator: value => /^[a-fA-F0-9]*$/.test(value),
+      validator: (value) => /^[a-fA-F0-9]*$/.test(value),
       message: 'Entropy should be an hexadecimal string',
     },
   ],
@@ -66,7 +67,7 @@ const mnemonicValidation = useValidation({
   source: passphrase,
   rules: [
     {
-      validator: value => isNotThrowing(() => mnemonicToEntropy(value, languages[language.value])),
+      validator: (value) => isNotThrowing(() => mnemonicToEntropy(value, languages[language.value])),
       message: 'Invalid mnemonic',
     },
   ],
@@ -75,7 +76,16 @@ const mnemonicValidation = useValidation({
 function refreshEntropy() {
   entropy.value = generateEntropy();
 }
-
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/bip39-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const { copy: copyEntropy } = useCopy({ source: entropy, text: 'Entropy copied to the clipboard' });
 const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase copied to the clipboard' });
 </script>
@@ -84,19 +94,11 @@ const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase
   <div>
     <n-grid cols="3" x-gap="12">
       <n-gi span="1">
-        <c-select
-          v-model:value="language"
-          searchable
-          label="Language:"
-          :options="Object.keys(languages)"
-        />
+        <c-select v-model:value="language" searchable label="Language:" :options="Object.keys(languages)" />
       </n-gi>
       <n-gi span="2">
-        <n-form-item
-          label="Entropy (seed):"
-          :feedback="entropyValidation.message"
-          :validation-status="entropyValidation.status"
-        >
+        <n-form-item label="Entropy (seed):" :feedback="entropyValidation.message"
+          :validation-status="entropyValidation.status">
           <n-input-group>
             <c-input-text v-model:value="entropy" placeholder="Your string..." />
 
@@ -114,11 +116,8 @@ const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase
         </n-form-item>
       </n-gi>
     </n-grid>
-    <n-form-item
-      label="Passphrase (mnemonic):"
-      :feedback="mnemonicValidation.message"
-      :validation-status="mnemonicValidation.status"
-    >
+    <n-form-item label="Passphrase (mnemonic):" :feedback="mnemonicValidation.message"
+      :validation-status="mnemonicValidation.status">
       <n-input-group>
         <c-input-text v-model:value="passphrase" placeholder="Your mnemonic..." raw-text />
 
@@ -127,5 +126,9 @@ const { copy: copyPassphrase } = useCopy({ source: passphrase, text: 'Passphrase
         </c-button>
       </n-input-group>
     </n-form-item>
+    <c-card>
+      <div v-html="markdownHtml"></div>
+    </c-card>
   </div>
+
 </template>

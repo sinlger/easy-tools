@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useThemeVars } from 'naive-ui';
+import showdown from 'showdown'; // 新增showdown引入
 
 import InputCopyable from '../../components/InputCopyable.vue';
 import { computeChmodOctalRepresentation, computeChmodSymbolicRepresentation } from './chmod-calculator.service';
@@ -20,7 +21,16 @@ const permissions = ref({
   group: { read: false, write: false, execute: false },
   public: { read: false, write: false, execute: false },
 });
-
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/chmod-calculator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const octal = computed(() => computeChmodOctalRepresentation({ permissions: permissions.value }));
 const symbolic = computed(() => computeChmodSymbolicRepresentation({ permissions: permissions.value }));
 </script>
@@ -61,8 +71,10 @@ const symbolic = computed(() => computeChmodSymbolicRepresentation({ permissions
     <div class="octal-result">
       {{ symbolic }}
     </div>
-
     <InputCopyable :value="`chmod ${octal} path`" readonly />
+    <c-card  class="mt-5">
+      <div v-html="markdownHtml" ></div>
+    </c-card>
   </div>
 </template>
 

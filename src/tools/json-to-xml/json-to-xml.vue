@@ -3,7 +3,17 @@ import convert from 'xml-js';
 import JSON5 from 'json5';
 import { withDefaultOnError } from '@/utils/defaults';
 import type { UseValidationRule } from '@/composable/validation';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const defaultValue = '{"a":{"_attributes":{"x":"1.234","y":"It\'s"}}}';
 function transformer(value: string) {
   return withDefaultOnError(() => {

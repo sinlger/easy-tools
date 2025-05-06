@@ -3,7 +3,17 @@ import { convertTextToUnicode, convertUnicodeToText } from './text-to-unicode.se
 import { useCopy } from '@/composable/copy';
 import showdown from 'showdown';
 import { useI18n } from 'vue-i18n';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const inputText = ref('');
 const unicodeFromText = computed(() => (inputText.value.trim() === '' ? '' : convertTextToUnicode(inputText.value)));
 const { copy: copyUnicode } = useCopy({ source: unicodeFromText });

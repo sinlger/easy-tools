@@ -3,7 +3,17 @@ import { v1 as generateUuidV1, v3 as generateUuidV3, v4 as generateUuidV4, v5 as
 import { useCopy } from '@/composable/copy';
 import { computedRefreshable } from '@/composable/computedRefreshable';
 import { withDefaultOnError } from '@/utils/defaults';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const versions = ['NIL', 'v1', 'v3', 'v4', 'v5'] as const;
 
 const version = useStorage<typeof versions[number]>('uuid-generator:version', 'v4');

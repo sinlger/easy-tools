@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import showdown from 'showdown'; // 新增showdown引入
+
 import { MessageType, composerize } from 'composerize-ts';
 import { withDefaultOnError } from '@/utils/defaults';
 import { useDownloadFileFromBase64 } from '@/composable/downloadBase64';
@@ -14,32 +16,34 @@ const conversionResult = computed(() =>
 );
 const dockerCompose = computed(() => conversionResult.value.yaml);
 const notImplemented = computed(() =>
-  conversionResult.value.messages.filter(msg => msg.type === MessageType.notImplemented).map(msg => msg.value),
+  conversionResult.value.messages.filter((msg) => msg.type === MessageType.notImplemented).map((msg) => msg.value),
 );
 const notComposable = computed(() =>
-  conversionResult.value.messages.filter(msg => msg.type === MessageType.notTranslatable).map(msg => msg.value),
+  conversionResult.value.messages.filter((msg) => msg.type === MessageType.notTranslatable).map((msg) => msg.value),
 );
 const errors = computed(() =>
   conversionResult.value.messages
-    .filter(msg => msg.type === MessageType.errorDuringConversion)
-    .map(msg => msg.value),
+    .filter((msg) => msg.type === MessageType.errorDuringConversion)
+    .map((msg) => msg.value),
 );
 const dockerComposeBase64 = computed(() => `data:application/yaml;base64,${textToBase64(dockerCompose.value)}`);
 const { download } = useDownloadFileFromBase64({ source: dockerComposeBase64, filename: 'docker-compose.yml' });
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/docker-run-to-docker-compose-converter.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
   <div>
-    <c-input-text
-      v-model:value="dockerRun"
-      label="Your docker run command:"
-      style="font-family: monospace"
-      multiline
-      raw-text
-      monospace
-      placeholder="Your docker run command to convert..."
-      rows="3"
-    />
+    <c-input-text v-model:value="dockerRun" label="Your docker run command:" style="font-family: monospace" multiline
+      raw-text monospace placeholder="Your docker run command to convert..." rows="3" />
 
     <n-divider />
 
@@ -62,11 +66,8 @@ const { download } = useDownloadFileFromBase64({ source: dockerComposeBase64, fi
     </div>
 
     <div v-if="notImplemented.length > 0">
-      <n-alert
-        title="This options are not yet implemented and therefore haven't been translated to docker-compose"
-        type="warning"
-        mt-5
-      >
+      <n-alert title="This options are not yet implemented and therefore haven't been translated to docker-compose"
+        type="warning" mt-5>
         <ul>
           <li v-for="(message, index) of notImplemented" :key="index">
             {{ message }}
@@ -85,4 +86,7 @@ const { download } = useDownloadFileFromBase64({ source: dockerComposeBase64, fi
       </n-alert>
     </div>
   </div>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>

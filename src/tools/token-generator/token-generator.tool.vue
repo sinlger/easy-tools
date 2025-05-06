@@ -12,9 +12,7 @@ const withLowercase = useQueryParam({ name: 'lowercase', defaultValue: true });
 const withNumbers = useQueryParam({ name: 'numbers', defaultValue: true });
 const withSymbols = useQueryParam({ name: 'symbols', defaultValue: false });
 const { t, locale } = useI18n();
-
 const markdownHtml = ref('');
-
 const loadMarkdown = async () => {
   const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
@@ -81,7 +79,7 @@ const { copy } = useCopy({ source: token, text: t('tools.token-generator.copied'
       </div>
     </c-card>
     <c-card>
-      <div v-html="markdownHtml" />
+      <div v-html="markdownHtml" ></div>
     </c-card>
   </div>
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core';
+import showdown from 'showdown'; // 新增showdown引入
 
 const { width, height } = useWindowSize();
 
@@ -55,6 +56,16 @@ const sections = [
     ],
   },
 ];
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/device-information.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
@@ -75,6 +86,9 @@ const sections = [
         </div>
       </n-gi>
     </n-grid>
+  </c-card>
+  <c-card>
+    <div v-html="markdownHtml"></div>
   </c-card>
 </template>
 

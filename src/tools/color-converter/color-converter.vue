@@ -7,6 +7,7 @@ import hwbPlugin from 'colord/plugins/hwb';
 import namesPlugin from 'colord/plugins/names';
 import lchPlugin from 'colord/plugins/lch';
 import { buildColorFormat } from './color-converter.models';
+import showdown from 'showdown'; // 新增showdown引入
 
 extend([cmykPlugin, hwbPlugin, namesPlugin, lchPlugin]);
 
@@ -70,34 +71,55 @@ function updateColorValue(value: Colord | undefined, omitLabel?: string) {
     }
   });
 }
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/color-converter.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 </script>
 
 <template>
-  <c-card>
-    <template v-for="({ label, parse, placeholder, validation, type }, key) in formats" :key="key">
-      <input-copyable
-        v-if="type === 'text'"
-        v-model:value="formats[key].value.value"
-        :test-id="`input-${key}`"
-        :label="`${label}:`"
-        label-position="left"
-        label-width="100px"
-        label-align="right"
-        :placeholder="placeholder"
-        :validation="validation"
-        raw-text
-        clearable
-        mt-2
-        @update:value="(v:string) => updateColorValue(parse(v), key)"
-      />
+  <div class="container"> <!-- 新增容器 div -->
+    <div class="card-wrapper">
+      <c-card>
+        <template v-for="({ label, parse, placeholder, validation, type }, key) in formats" :key="key">
+          <input-copyable v-if="type === 'text'" v-model:value="formats[key].value.value" :test-id="`input-${key}`"
+            :label="`${label}:`" label-position="left" label-width="100px" label-align="right"
+            :placeholder="placeholder" :validation="validation" raw-text clearable mt-2
+            @update:value="(v:string) => updateColorValue(parse(v), key)" />
 
-      <n-form-item v-else-if="type === 'color-picker'" :label="`${label}:`" label-width="100" label-placement="left" :show-feedback="false">
-        <n-color-picker
-          v-model:value="formats[key].value.value"
-          placement="bottom-end"
-          @update:value="(v:string) => updateColorValue(parse(v), key)"
-        />
-      </n-form-item>
-    </template>
-  </c-card>
+          <n-form-item v-else-if="type === 'color-picker'" :label="`${label}:`" label-width="100" label-placement="left"
+            :show-feedback="false">
+            <n-color-picker v-model:value="formats[key].value.value" placement="bottom-end"
+              @update:value="(v:string) => updateColorValue(parse(v), key)" />
+          </n-form-item>
+        </template>
+      </c-card>
+    </div>
+
+    <div class="card-wrapper">
+      <c-card class="mt-5">
+        <div v-html="markdownHtml"></div>
+      </c-card>
+    </div>
+  </div>
 </template>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.card-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+</style>

@@ -2,7 +2,17 @@
 import { convertBase } from '../integer-base-converter/integer-base-converter.model';
 import { ipv4ToInt, ipv4ToIpv6, isValidIpv4 } from './ipv4-address-converter.service';
 import { useValidation } from '@/composable/validation';
-
+import showdown from 'showdown'; // 新增showdown引入
+const { t, locale } = useI18n();
+const markdownHtml = ref('');
+const loadMarkdown = async () => {
+  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const converter = new showdown.Converter();
+  markdownHtml.value = converter.makeHtml(mdContent.default);
+};
+watchEffect(() => {
+  loadMarkdown();
+});
 const rawIpAddress = useStorage('ipv4-converter:ip', '192.168.1.1');
 
 const convertedSections = computed(() => {
