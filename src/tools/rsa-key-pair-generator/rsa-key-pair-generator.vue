@@ -8,7 +8,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/rsa-key-pair-generator.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -56,4 +56,7 @@ const [certs, refreshCerts] = computedRefreshableAsync(
     <h3>Private key</h3>
     <TextareaCopyable :value="certs.privateKeyPem" />
   </div>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>

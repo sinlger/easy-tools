@@ -4,7 +4,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/password-strength-analyser.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -69,4 +69,7 @@ const details = computed(() => [
       The computed strength is based on the time it would take to crack the password using a brute force approach, it does not take into account the possibility of a dictionary attack.
     </div>
   </div>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>

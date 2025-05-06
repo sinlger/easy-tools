@@ -68,6 +68,9 @@ const rawYamlValidation = useValidation({
   <n-form-item label="Prettified version of your YAML">
     <TextareaCopyable :value="cleanYaml" language="yaml" :follow-height-of="inputElement" />
   </n-form-item>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>
 
 <style lang="less" scoped>

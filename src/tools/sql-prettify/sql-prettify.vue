@@ -6,7 +6,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/sql-prettify.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -30,11 +30,7 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
 <template>
   <div style="flex: 0 0 100%">
     <div style="max-width: 600px" :class="{ 'flex-col': styleStore.isSmallScreen }" mx-auto mb-5 flex gap-2>
-      <c-select
-        v-model:value="config.language"
-        flex-1
-        label="Dialect"
-        :options="[
+      <c-select v-model:value="config.language" flex-1 label="Dialect" :options="[
           { label: 'GCP BigQuery', value: 'bigquery' },
           { label: 'IBM DB2', value: 'db2' },
           { label: 'Apache Hive', value: 'hive' },
@@ -48,46 +44,30 @@ const prettySQL = computed(() => formatSQL(rawSQL.value, config));
           { label: 'Standard SQL', value: 'sql' },
           { label: 'sqlite', value: 'sqlite' },
           { label: 'SQL Server Transact-SQL', value: 'tsql' },
-        ]"
-      />
-      <c-select
-        v-model:value="config.keywordCase" label="Keyword case"
-        flex-1
-        :options="[
+        ]" />
+      <c-select v-model:value="config.keywordCase" label="Keyword case" flex-1 :options="[
           { label: 'UPPERCASE', value: 'upper' },
           { label: 'lowercase', value: 'lower' },
           { label: 'Preserve', value: 'preserve' },
-        ]"
-      />
-      <c-select
-        v-model:value="config.indentStyle" label="Indent style"
-        flex-1
-        :options="[
+        ]" />
+      <c-select v-model:value="config.indentStyle" label="Indent style" flex-1 :options="[
           { label: 'Standard', value: 'standard' },
           { label: 'Tabular left', value: 'tabularLeft' },
           { label: 'Tabular right', value: 'tabularRight' },
-        ]"
-      />
+        ]" />
     </div>
   </div>
 
   <n-form-item label="Your SQL query">
-    <c-input-text
-      ref="inputElement"
-      v-model:value="rawSQL"
-      placeholder="Put your SQL query here..."
-      rows="20"
-      multiline
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
-      monospace
-    />
+    <c-input-text ref="inputElement" v-model:value="rawSQL" placeholder="Put your SQL query here..." rows="20" multiline
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" monospace />
   </n-form-item>
   <n-form-item label="Prettify version of your query">
     <TextareaCopyable :value="prettySQL" language="sql" :follow-height-of="inputElement" />
   </n-form-item>
+  <c-card class="w-100">
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>
 
 <style lang="less" scoped>

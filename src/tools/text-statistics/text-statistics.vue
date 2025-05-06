@@ -5,7 +5,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/text-statistics.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -25,5 +25,8 @@ const text = ref('');
       <n-statistic label="Line count" :value="text === '' ? 0 : text.split(/\r\n|\r|\n/).length" flex-1 />
       <n-statistic label="Byte size" :value="formatBytes(getStringSizeInBytes(text))" flex-1 />
     </div>
+  </c-card>
+  <c-card>
+    <div v-html="markdownHtml"></div>
   </c-card>
 </template>

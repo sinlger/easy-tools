@@ -6,7 +6,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/list-converter.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -130,4 +130,11 @@ function transformer(value: string) {
     output-label="Your transformed data"
     :transformer="transformer"
   />
+  <div style="flex: 0 0 100%">
+    <div style="margin: 0 auto; max-width: 600px">
+      <c-card>
+        <div v-html="markdownHtml"></div>
+      </c-card>
+    </div>
+  </div>
 </template>

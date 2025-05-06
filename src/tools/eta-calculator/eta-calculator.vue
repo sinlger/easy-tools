@@ -10,7 +10,7 @@ import showdown from 'showdown'; // 新增showdown引入
 const { t, locale } = useI18n();
 const markdownHtml = ref('');
 const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
+  const mdContent = await import(`./language/eta-calculator.${locale.value}.md?raw`);
   const converter = new showdown.Converter();
   markdownHtml.value = converter.makeHtml(mdContent.default);
 };
@@ -81,6 +81,9 @@ const endAt = computed(() =>
       </n-statistic>
     </c-card>
   </div>
+  <c-card>
+    <div v-html="markdownHtml"></div>
+  </c-card>
 </template>
 
 <style lang="less" scoped>

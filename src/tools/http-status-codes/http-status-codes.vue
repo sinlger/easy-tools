@@ -1,17 +1,6 @@
 <script setup lang="ts">
 import { codesByCategories } from './http-status-codes.constants';
 import { useFuzzySearch } from '@/composable/fuzzySearch';
-import showdown from 'showdown'; // 新增showdown引入
-const { t, locale } = useI18n();
-const markdownHtml = ref('');
-const loadMarkdown = async () => {
-  const mdContent = await import(`./language/token-generator.${locale.value}.md?raw`);
-  const converter = new showdown.Converter();
-  markdownHtml.value = converter.makeHtml(mdContent.default);
-};
-watchEffect(() => {
-  loadMarkdown();
-});
 const search = ref('');
 
 const { searchResult } = useFuzzySearch({
@@ -30,27 +19,14 @@ const codesByCategoryFiltered = computed(() => {
   return [{ category: 'Search results', codes: searchResult.value }];
 });
 </script>
-
 <template>
   <div>
-    <c-input-text
-      v-model:value="search"
-      placeholder="Search http status..."
-      autofocus raw-text mb-10
-    />
-
+    <c-input-text v-model:value="search" placeholder="Search http status..." autofocus raw-text mb-10 />
     <div v-for="{ codes, category } of codesByCategoryFiltered" :key="category" mb-8>
-      <div mb-2 text-xl>
-        {{ category }}
-      </div>
-
+      <div mb-2 text-xl> {{ category }} </div>
       <c-card v-for="{ code, description, name, type } of codes" :key="code" mb-2>
-        <div text-lg font-bold>
-          {{ code }} {{ name }}
-        </div>
-        <div op-70>
-          {{ description }} {{ type !== 'HTTP' ? `For ${type}.` : '' }}
-        </div>
+        <div text-lg font-bold> {{ code }} {{ name }} </div>
+        <div op-70> {{ description }} {{ type !== 'HTTP' ? `For ${type}.` : '' }} </div>
       </c-card>
     </div>
   </div>
