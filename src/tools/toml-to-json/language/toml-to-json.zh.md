@@ -16,7 +16,7 @@ TOML 到 JSON 是一款便捷的在线转换工具，能够将 TOML 格式的数
 
 ## 三、使用步骤
 
-  1. 打开工具页面（[https://it - tools.tech/toml - to - json](https://it-tools.tech/toml-to-json)）。
+  1. 打开工具页面（[https://atoolio.com/toml - to - json](https://atoolio.com/toml-to-json)）。
   2. 在左侧的 “Your TOML” 文本框中，粘贴或输入需要转换的 TOML 数据。
   3. 系统会自动进行转换，右侧的 “JSON from your TOML” 文本框将显示转换后的 JSON 数据。
 

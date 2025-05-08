@@ -24,14 +24,14 @@ Base64 文件转换器是一个在线工具，可以帮助用户将文件转换�
 
 ### 文件转 Base64
 
-  1. 打开 [Base64 文件转换器](https://it-tools.tech/base64-file-converter)。
+  1. 打开 [Base64 文件转换器](https://atoolio.com/base64-file-converter)。
   2. 在 “File to base64” 区域，将文件拖入虚线框内或点击 “Browse files” 按钮选择文件。
   3. 等待文件上传并转换完成，转换后的 Base64 字符串会显示在下方的文本区域内。
   4. 点击 “Copy” 按钮复制 Base64 字符串供后续使用。
 
 ### Base64 转文件
 
-  1. 打开 [Base64 文件转换器](https://it-tools.tech/base64-file-converter)。
+  1. 打开 [Base64 文件转换器](https://atoolio.com/base64-file-converter)。
   2. 在 “Base64 to file” 区域的 “File Name” 输入框中输入文件名（不包含扩展名）。
   3. 在 “Extension” 输入框中输入文件的扩展名。
   4. 将 Base64 字符串粘贴到下方的文本输入框中。

@@ -1,12 +1,12 @@
-# IT Tools - Camera Recorder User Guide
+# A Toolio - Camera Recorder User Guide
 
 ## Function Overview
-The IT Tools Camera Recorder is a convenient online tool that allows users to take photos or record videos using their webcams or cameras, providing a simple and quick way for multimedia creation.
+The A Toolio Camera Recorder is a convenient online tool that allows users to take photos or record videos using their webcams or cameras, providing a simple and quick way for multimedia creation.
 
 ## Usage Steps
 
 ### Granting Access
-1. Open the IT Tools Camera Recorder website
+1. Open the A Toolio Camera Recorder website
 2. Click the “Grant permission” button
 
 ### Taking Photos

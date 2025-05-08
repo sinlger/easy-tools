@@ -106,7 +106,7 @@ WHERE
 
 ## III. Steps to Use
 
-1. Open the [SQL Prettify and Formatting Tool](https://it-tools.tech/sql-prettify) webpage.
+1. Open the [SQL Prettify and Formatting Tool](https://atoolio.com/sql-prettify) webpage.
 2. Paste or enter your SQL query statement in the input area.
 3. Select the appropriate options for dialect, keyword case, and indentation style according to your needs.
 4. View the prettified SQL statement in the output area. If satisfied, click the copy button to copy it.

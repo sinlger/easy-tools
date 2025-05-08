@@ -1,4 +1,4 @@
-# IT Tools - OTP Code Generator User Guide
+# A Toolio - OTP Code Generator User Guide
 
 ## 1. Feature Overview
 This OTP code generator is designed for multi - factor authentication. It can create and verify time - based one - time passwords (OTP), offering an extra layer of security.

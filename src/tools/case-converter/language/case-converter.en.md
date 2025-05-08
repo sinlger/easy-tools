@@ -1,4 +1,4 @@
-### IT Tools - Case converter User Manual
+### A Toolio - Case converter User Manual
 
 #### 1. Overview
 

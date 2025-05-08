@@ -1,4 +1,4 @@
-# IT Tools - Slugify String User Guide
+# A Toolio - Slugify String User Guide
 
 ## 1. Introduction to the Tool
 
@@ -12,7 +12,7 @@
 
 ## 3. Steps to Use
 
-  1. Open the [IT Tools - Slugify String tool page](https://it-tools.tech/slugify-string).
+  1. Open the [A Toolio - Slugify String tool page](https://atoolio.com/slugify-string).
   2. In the “Your string to slugify” input box, enter the string you want to convert, such as “My file path”.
   3. The tool will automatically display the converted result in real-time in the “Your slug” output box, e.g., “my-file-path”.
   4. To use the converted result, click the “Copy slug” button to copy the converted string to the clipboard, and then you can paste it elsewhere.
@@ -23,4 +23,4 @@
   2. **File Management** : Used for file naming, it generates file names that comply with file system specifications, avoiding problems such as inability to create, save, or access files due to special characters or spaces.
   3. **Database and Backend Development** : Acts as an auxiliary tool for generating IDs, creating concise and standardized strings as unique identifiers in databases or other fields requiring string identifiers, thereby improving data consistency and readability.
 
-By using the IT Tools - Slugify String tool, developers can efficiently and conveniently generate safe strings suitable for various scenarios, enhancing development efficiency and code quality.
+By using the A Toolio - Slugify String tool, developers can efficiently and conveniently generate safe strings suitable for various scenarios, enhancing development efficiency and code quality.

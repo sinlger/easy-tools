@@ -1,8 +1,8 @@
-# IT Tools Online Hmac Generator User Guide
+# A Toolio Online Hmac Generator User Guide
 
 ## I. Tool Introduction
 
-IT Tools' online Hmac generator can compute Hash - based Message Authentication Codes (HMAC) using a secret key and selected hashing function. It's ideal for developers to swiftly generate HMAC for authentication in various scenarios.
+A Toolio' online Hmac generator can compute Hash - based Message Authentication Codes (HMAC) using a secret key and selected hashing function. It's ideal for developers to swiftly generate HMAC for authentication in various scenarios.
 
 ## II. Feature Description
 

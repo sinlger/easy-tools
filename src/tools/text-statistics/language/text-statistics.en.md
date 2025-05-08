@@ -1,7 +1,7 @@
-# IT Tools Text Statistics Feature Usage Document
+# A Toolio Text Statistics Feature Usage Document
 
 ## Function Overview
-The text statistics feature of IT Tools enables users to swiftly obtain information about the text, including the number of characters, words, lines, and byte size. This makes it suitable for various scenarios where text quantification is needed, such as developers and copywriters.
+The text statistics feature of A Toolio enables users to swiftly obtain information about the text, including the number of characters, words, lines, and byte size. This makes it suitable for various scenarios where text quantification is needed, such as developers and copywriters.
 
 ## Usage Steps
 

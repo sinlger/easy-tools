@@ -28,7 +28,7 @@ IPv6 ULA生成器是一款在线工具，旨在帮助用户根据 RFC4193 标准
 
 **四、使用方法**
 
-  1. 访问 IPv6 ULA 生成器的在线网址[https://it-tools.tech/ipv6-ula-generator](https://it-tools.tech/ipv6-ula-generator)。
+  1. 访问 IPv6 ULA 生成器的在线网址[https://atoolio.com/ipv6-ula-generator](https://atoolio.com/ipv6-ula-generator)。
   2. 如果已知设备的 MAC 地址，将其按照标准格式输入到 “MAC address” 输入框中。若不确定 MAC 地址，可暂时留空，工具可能会根据默认设置或随机生成的 MAC 地址进行 ULA 地址的生成（具体以工具的实际逻辑为准）。
   3. 点击生成按钮（如 “Generate” 按钮，假设存在该按钮，实际按钮名称可能因工具界面而异），工具将根据输入的 MAC 地址（或默认 MAC 地址）以及当前时间戳，按照 IETF 推荐的方法计算并生成相应的 IPv6 ULA 地址、第一个可路由块地址和最后一个可路由块地址。
   4. 查看生成的地址信息，根据实际需求将这些地址应用于局域网内的设备配置、网络规划或网络测试等场景中。

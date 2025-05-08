@@ -25,14 +25,14 @@ Le convertisseur de fichiers Base64 est un outil en ligne pratique permettant de
 
 ### Convertir un fichier en Base64
 
-  1. Ouvrez le [Convertisseur de fichiers Base64](https://it-tools.tech/base64-file-converter).
+  1. Ouvrez le [Convertisseur de fichiers Base64](https://atoolio.com/base64-file-converter).
   2. Dans la section « Fichier vers Base64 », faites glisser le fichier dans la boîte à lignes pointillées ou cliquez pour sélectionner un fichier.
   3. Patientez pendant le traitement du fichier. La chaîne Base64 convertie apparaîtra dans la zone d’affichage du texte.
   4. Cliquez sur le bouton « Copier » pour copier la chaîne Base64.
 
 ### Convertir Base64 en fichier
 
-  1. Ouvrez le [Convertisseur de fichiers Base64](https://it-tools.tech/base64-file-converter).
+  1. Ouvrez le [Convertisseur de fichiers Base64](https://atoolio.com/base64-file-converter).
   2. Dans la section « De Base64 à fichier », saisissez le nom du fichier (sans extension) dans le champ « Nom du fichier ».
   3. Saisissez l’extension de fichier appropriée dans le champ « Extension ».
   4. Collez la chaîne Base64 dans la boîte de texte.

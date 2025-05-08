@@ -1,8 +1,8 @@
-# IT Tools - Hash Text Documentation
+# A Toolio - Hash Text Documentation
 
 ## Introduction
 
-The IT Tools - Hash Text is a handy online tool designed for developers and users who need to generate hash values for text strings. This tool supports multiple hashing algorithms including MD5, SHA1, SHA256, SHA224, SHA512, SHA384, SHA3, and RIPEMD160. It provides a simple and efficient way to hash text and encode the results in hexadecimal format.
+The A Toolio - Hash Text is a handy online tool designed for developers and users who need to generate hash values for text strings. This tool supports multiple hashing algorithms including MD5, SHA1, SHA256, SHA224, SHA512, SHA384, SHA3, and RIPEMD160. It provides a simple and efficient way to hash text and encode the results in hexadecimal format.
 
 ## Features
 

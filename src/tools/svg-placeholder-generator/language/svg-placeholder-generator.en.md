@@ -29,7 +29,7 @@ The SVG Placeholder Generator is a handy online utility designed to swiftly crea
 
 ## III. Operating Procedure
 
-  1. Open the [SVG Placeholder Generator website](https://it-tools.tech/svg-placeholder-generator)
+  1. Open the [SVG Placeholder Generator website](https://atoolio.com/svg-placeholder-generator)
   2. Set the width and height of the placeholder according to your requirements. For example, to generate a placeholder with a width of 800 pixels and a height of 450 pixels, enter “800” in the “Width (in px)” input box and “450” in the “Height (in px)” input box.
   3. Customize the background and text colors. If you want a light blue background (e.g., “#e6f7ff”) and dark blue text (e.g., “#1890ff”), input the corresponding color codes in the respective input boxes.
   4. Set the font size and custom text. Assuming a font size of 20 pixels and the desired displayed text is “Sample”, enter “20” in the “Font size” input box and “Sample” in the “Custom text” input box.

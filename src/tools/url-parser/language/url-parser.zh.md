@@ -12,7 +12,7 @@ URL 分析器是一款用于解析 URL 字符串的在线工具，能够将复�
      * **协议（Protocol）** ：显示 URL 中的协议部分，如 “https:” 等，表明该 URL 所使用的网络传输协议。
      * **用户名（Username）** ：如果 URL 中包含用户名信息，会在此处展示，用于标识在 URL 中提供的用户身份。
      * **密码（Password）** ：对应显示 URL 中的密码部分，与用户名结合，用于用户身份验证。
-     * **主机名（Hostname）** ：展示 URL 对应的域名，如 “it-tools.tech”，表示目标服务器的名称。
+     * **主机名（Hostname）** ：展示 URL 对应的域名，如 “atoolio.com”，表示目标服务器的名称。
      * **端口（Port）** ：显示 URL 中指定的端口号，用于确定服务器上提供服务的具体端口，默认情况下不同协议有不同的默认端口，如 HTTP 的默认端口是 80，HTTPS 的默认端口是 443。
      * **路径（Path）** ：显示 URL 中的路径部分，如 “/url-parser”，指向服务器上特定的资源或服务位置。
      * **参数（Params）** ：列出 URL 中的查询参数部分，以 “?” 开头，后续跟多个 “键值对” 形式的参数，如 “?key1=value&key2=value2”，这些参数用于向服务器传递额外的信息和指令。
@@ -20,8 +20,8 @@ URL 分析器是一款用于解析 URL 字符串的在线工具，能够将复�
 
 ## 三、使用步骤
 
-  1. 打开浏览器，访问 [URL 分析器](https://it-tools.tech/url-parser) 网页。
-  2. 在输入框中输入需要解析的 URL 字符串，例如 “https://me:pwd@it-tools.tech:3000/url-parser?key1=value&key2=value2#the-hash”。
+  1. 打开浏览器，访问 [URL 分析器](https://atoolio.com/url-parser) 网页。
+  2. 在输入框中输入需要解析的 URL 字符串，例如 “https://me:pwd@atoolio.com:3000/url-parser?key1=value&key2=value2#the-hash”。
   3. 点击解析按钮（通常回车键也可以触发解析），工具会自动对输入的 URL 进行解析，并在下方展示各个组成部分的详细信息。
   4. 查看解析结果，根据需要复制对应的组成部分内容，用于后续的开发调试或者其他操作。
 

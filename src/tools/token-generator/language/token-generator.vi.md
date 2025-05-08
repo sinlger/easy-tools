@@ -1,5 +1,5 @@
 **Truy cập công cụ**
-1. **Nhập URL**: Nhập<https://it-tools.tech/token-generator>vào thanh địa chỉ của trình duyệt để truy cập trang web.
+1. **Nhập URL**: Nhập<https://atoolio.com/token-generator>vào thanh địa chỉ của trình duyệt để truy cập trang web.
 2. **Chờ trang tải**: Đảm bảo trang đã tải hoàn toàn và tất cả các phần tử như tùy chọn và nút đều được hiển thị chính xác.
 
 **Các chức năng và thao tác cơ bản**

@@ -41,7 +41,7 @@ JSON 压缩工具是一种用于减小 JSON 文件大小的在线工具。它通
 
 ## 四、使用方法
 
-  1. 打开 JSON 压缩工具的网页（[https://it - tools.tech/json - minify](https://it-tools.tech/json-minify)）。
+  1. 打开 JSON 压缩工具的网页（[https://atoolio.com/json-minify](https://atoolio.com/json-minify)）。
   2. 在输入区域粘贴或输入需要压缩的原始 JSON 数据。
   3. 等待工具自动完成压缩处理，压缩后的 JSON 数据会显示在输出区域。
   4. 点击输出区域右侧的复制按钮，将压缩后的 JSON 数据复制到剪贴板。

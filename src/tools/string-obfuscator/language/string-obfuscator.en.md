@@ -1,8 +1,8 @@
-# IT Tools String Obfuscator User Guide
+# A Toolio String Obfuscator User Guide
 
 ## I. Tool Overview
 
-IT Tools offers an online String Obfuscator. It's designed to obfuscate sensitive strings (like secrets, IBANs, or tokens). This enables secure sharing while maintaining identifiability without exposing the actual content.
+A Toolio offers an online String Obfuscator. It's designed to obfuscate sensitive strings (like secrets, IBANs, or tokens). This enables secure sharing while maintaining identifiability without exposing the actual content.
 
 ## II. Feature Explanation
 
@@ -26,7 +26,7 @@ IT Tools offers an online String Obfuscator. It's designed to obfuscate sensitiv
 
 ## III. Usage Steps
 
-  1. Go to the [IT Tools String Obfuscator](https://it-tools.tech/string-obfuscator) webpage.
+  1. Go to the [A Toolio String Obfuscator](https://atoolio.com/string-obfuscator) webpage.
   2. Enter the string to be obfuscated in the **String to obfuscate** box.
   3. Adjust the **Keep first** and **Keep last** values and decide whether to keep spaces.
   4. View the obfuscated string in the output box.

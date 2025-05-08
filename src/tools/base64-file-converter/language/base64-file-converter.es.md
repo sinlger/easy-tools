@@ -25,14 +25,14 @@ El Convertidor de archivos Base64 es una herramienta en línea que permite codif
 
 ### Convertir un archivo a Base64
 
-  1. Abra el [Convertidor de archivos Base64](https://it-tools.tech/base64-file-converter).
+  1. Abra el [Convertidor de archivos Base64](https://atoolio.com/base64-file-converter).
   2. En la sección "Archivo a Base64", arrastre el archivo a la caja con líneas punteadas o haga clic para seleccionar un archivo.
   3. Espere a que el archivo se procese. La cadena Base64 convertida aparecerá en el área de visualización de texto.
   4. Haga clic en el botón "Copiar" para copiar la cadena Base64.
 
 ### Convertir Base64 a archivo
 
-  1. Abra el [Convertidor de archivos Base64](https://it-tools.tech/base64-file-converter).
+  1. Abra el [Convertidor de archivos Base64](https://atoolio.com/base64-file-converter).
   2. En la sección "De Base64 a archivo", escriba el nombre del archivo (sin extensión) en el campo "Nombre de archivo".
   3. Escriba la extensión de archivo adecuada en el campo "Extensión".
   4. Pegue la cadena Base64 en la caja de texto.

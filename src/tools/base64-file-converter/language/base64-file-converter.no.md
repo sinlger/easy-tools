@@ -25,14 +25,14 @@ Base64-filkonverteren er et praktisk verktøy på nett som lar deg kode filer, b
 
 ### Konverter en fil til Base64
 
-  1. Åpne [Base64-filkonverteren](https://it-tools.tech/base64-file-converter).
+  1. Åpne [Base64-filkonverteren](https://atoolio.com/base64-file-converter).
   2. I avsnittet « Fil til Base64 », drag filen inn i vasket prikklinje boks eller klikk for å velge en fil.
   3. Vent på at filen skal bli prosessert. Den konverterte Base64-strengen vil dukke opp i tekstvisningsområdet.
   4. Klikk på « Kopier »-knappen for å kopiere Base64-strengen.
 
 ### Konverter Base64 til fil
 
-  1. Åpne [Base64-filkonverteren](https://it-tools.tech/base64-file-converter).
+  1. Åpne [Base64-filkonverteren](https://atoolio.com/base64-file-converter).
   2. I avsnittet « Fra Base64 til fil », skriv inn filnavnet (uten filtillegg) i « Filnavn »-feltet.
   3. Skriv inn det passende filtillegget i « Filtillegg »-feltet.
   4. Lim inn Base64-strengen i tekstfeltet.

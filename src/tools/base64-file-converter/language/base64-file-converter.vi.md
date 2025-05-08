@@ -25,14 +25,14 @@ Công cụ chuyển đổi tệp Base64 là một công cụ trực tuyến ti�
 
 ### Chuyển đổi tệp sang Base64
 
-  1. Mở [Công cụ chuyển đổi tệp Base64](https://it-tools.tech/base64-file-converter).
+  1. Mở [Công cụ chuyển đổi tệp Base64](https://atoolio.com/base64-file-converter).
   2. Trong phần "Tệp sang Base64", kéo tệp vào hộp đường走出来 hoặc nhấp để chọn một tệp.
   3. Chờ tệp được xử lý. Chuỗi Base64 đã chuyển đổi sẽ xuất hiện trong khu vực hiển thị văn bản.
   4. Nhấp vào nút "Sao chép" để sao chép chuỗi Base64.
 
 ### Chuyển đổi Base64 sang tệp
 
-  1. Mở [Công cụ chuyển đổi tệp Base64](https://it-tools.tech/base64-file-converter).
+  1. Mở [Công cụ chuyển đổi tệp Base64](https://atoolio.com/base64-file-converter).
   2. Trong phần "Từ Base64 sang tệp", nhập tên tệp (không có phần mở rộng) vào trường "Tên tệp".
   3. Nhập phần mở rộng tệp phù hợp vào trường "Phần mở rộng".
   4. Dán chuỗi Base64 vào hộp văn bản.

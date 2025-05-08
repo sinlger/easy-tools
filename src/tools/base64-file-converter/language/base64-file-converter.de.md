@@ -25,14 +25,14 @@ Der Base64-Dateiwandler ist ein nützliches Online-Tool, das es ermöglicht, Str
 
 ###Eine Datei in Base64 umwandeln
 
-  1. Öffnen Sie den [Base64-Dateiwandler](https://it-tools.tech/base64-file-converter).
+  1. Öffnen Sie den [Base64-Dateiwandler](https://atoolio.com/base64-file-converter).
   2. Im Bereich „Datei in Base64“ ziehen Sie die Datei in das gepunktete Feld oder klicken, um eine Datei auszuwählen.
   3. Warten Sie, bis die Datei verarbeitet wird. Der konvertierte Base64-String wird im Textanzeigebereich angezeigt.
   4. Klicken Sie auf den „Kopieren“-Knopf, um den Base64-String zu kopieren.
 
 ### Base64 in eine Datei umwandeln
 
-  1. Öffnen Sie den [Base64-Dateiwandler](https://it-tools.tech/base64-file-converter).
+  1. Öffnen Sie den [Base64-Dateiwandler](https://atoolio.com/base64-file-converter).
   2. Im Bereich „Von Base64 zu Datei“ geben Sie den Dateinamen (ohne Erweiterung) im Feld „Dateiname“ ein.
   3. Geben Sie die entsprechende Dateierweiterung im Feld „Dateierweiterung“ ein.
   4. Fügen Sie den Base64-String ins Textfeld ein.

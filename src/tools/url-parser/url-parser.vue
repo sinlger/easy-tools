@@ -13,7 +13,7 @@ const loadMarkdown = async () => {
 watchEffect(() => {
   loadMarkdown();
 });
-const urlToParse = ref('https://me:pwd@it-tools.tech:3000/url-parser?key1=value&key2=value2#the-hash');
+const urlToParse = ref('https://me:pwd@atoolio.com:3000/url-parser?key1=value&key2=value2#the-hash');
 
 const urlParsed = computed(() => withDefaultOnError(() => new URL(urlToParse.value), undefined));
 const urlValidationRules = [

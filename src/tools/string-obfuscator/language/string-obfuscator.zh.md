@@ -1,8 +1,8 @@
-# IT Tools 字符串混淆器使用文档
+# A Toolio 字符串混淆器使用文档
 
 ## 一、工具概述
 
-IT Tools 提供的字符串混淆器是一款简单实用的在线工具，旨在将敏感字符串（如秘密、IBAN 或令牌）进行混淆处理，使其在共享时既能保持可识别性，又能有效保护隐私，避免内容泄露。
+A Toolio 提供的字符串混淆器是一款简单实用的在线工具，旨在将敏感字符串（如秘密、IBAN 或令牌）进行混淆处理，使其在共享时既能保持可识别性，又能有效保护隐私，避免内容泄露。
 
 ## 二、功能说明
 
@@ -26,7 +26,7 @@ IT Tools 提供的字符串混淆器是一款简单实用的在线工具，旨�
 
 ## 三、使用步骤
 
-  1. 打开 [IT Tools 字符串混淆器](https://it-tools.tech/string-obfuscator) 网页。
+  1. 打开 [A Toolio 字符串混淆器](https://atoolio.com/string-obfuscator) 网页。
   2. 在 **String to obfuscate** 输入框中输入待混淆的字符串。
   3. 根据需要调整 **Keep first** 和 **Keep last** 的数值，以及确定是否开启 **Keep spaces** 选项。
   4. 查看输出框中生成的混淆字符串。

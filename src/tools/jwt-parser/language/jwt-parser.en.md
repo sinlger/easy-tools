@@ -1,8 +1,8 @@
-# IT Tools - JWT Parser User Guide
+# A Toolio - JWT Parser User Guide
 
 ## 1. Tool Introduction
 
-The IT Tools - JWT Parser is a convenient online utility that parses and decodes JSON Web Tokens (JWT). It offers developers a quick way to view JWT details for debugging, verification, and learning purposes.
+The A Toolio - JWT Parser is a convenient online utility that parses and decodes JSON Web Tokens (JWT). It offers developers a quick way to view JWT details for debugging, verification, and learning purposes.
 
 ## 2. Features
 
@@ -27,7 +27,7 @@ The IT Tools - JWT Parser is a convenient online utility that parses and decodes
 
 ## 3. Steps to Use
 
-  1. **Visit the Website** : Open a browser and go to<https://it-tools.tech/jwt-parser> to access the JWT Parser page.
+  1. **Visit the Website** : Open a browser and go to<https://atoolio.com/jwt-parser> to access the JWT Parser page.
   2. **Input JWT** : Paste the JWT to be parsed into the input box.
   3. **Click Parse** : Click the parse button (usually the button next to “JWT to decode”, the exact appearance depends on the page display), and the system will automatically parse the input JWT.
   4. **View Results** : Check the parsed Header and Payload information in the display area below to understand the detailed content of the JWT.

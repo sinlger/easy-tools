@@ -21,7 +21,7 @@ JSON到YAML转换器是一款功能强大的在线工具，旨在帮助开发者
 ## 三、使用步骤
 
 ### （一）打开转换器
-通过浏览器访问[https://it-tools.tech/json-to-yaml-converter](https://it-tools.tech/json-to-yaml-converter)，打开JSON到YAML转换器网页。
+通过浏览器访问[https://atoolio.com/json-to-yaml-converter](https://atoolio.com/json-to-yaml-converter)，打开JSON到YAML转换器网页。
 
 ### （二）输入JSON数据
 在页面左侧的“Your JSON”输入区域，粘贴或手动输入需要转换的JSON数据。输入时，请确保JSON格式正确，避免因格式错误导致转换失败。

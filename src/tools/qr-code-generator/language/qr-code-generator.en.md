@@ -1,14 +1,14 @@
-# IT Tools QR Code Generator User Guide
+# A Toolio QR Code Generator User Guide
 
 ## I. Introduction
 
-The IT Tools QR Code Generator is a user - friendly online tool. It allows you to quickly create and download QR codes for URLs or plain text with customizable colors.
+The A Toolio QR Code Generator is a user - friendly online tool. It allows you to quickly create and download QR codes for URLs or plain text with customizable colors.
 
 ## II. Features
 
 ### (1) Text Input
 
-Enter the content you want to generate a QR code for into the "Text" box. It can be a URL (like <https://it-tools.tech> in the example) or plain text. Once entered, the system will instantly generate a QR code based on your settings.
+Enter the content you want to generate a QR code for into the "Text" box. It can be a URL (like <https://atoolio.com> in the example) or plain text. Once entered, the system will instantly generate a QR code based on your settings.
 
 ### (2) Color Settings
 

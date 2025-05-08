@@ -1,7 +1,7 @@
 # IT 工具 - HTML 实体使用指南
 
 ## 简介
-本文档介绍了如何使用 IT 工具网站上的 HTML 实体功能，网址为 [IT Tools](https://it-tools.tech/html-entities)。这个便捷的在线工具可以帮助开发者轻松地转义或还原 HTML 实体。
+本文档介绍了如何使用 IT 工具网站上的 HTML 实体功能，网址为 [A Toolio](https://atoolio.com/html-entities)。这个便捷的在线工具可以帮助开发者轻松地转义或还原 HTML 实体。
 
 ## 功能
 

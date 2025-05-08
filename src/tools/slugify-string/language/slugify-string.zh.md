@@ -1,4 +1,4 @@
-# IT Tools - Slugify String 使用文档
+# A Toolio - Slugify String 使用文档
 
 ## 一、工具简介
 
@@ -12,7 +12,7 @@
 
 ## 三、使用步骤
 
-  1. 打开 [IT Tools - Slugify String 工具页面](https://it-tools.tech/slugify-string)。
+  1. 打开 [A Toolio - Slugify String 工具页面](https://atoolio.com/slugify-string)。
   2. 在 “Your string to slugify” 输入框中输入需要转换的字符串，例如 “My file path”。
   3. 工具会自动在 “Your slug” 输出框中实时显示转换后的结果，如 “my-file-path”。
   4. 如需使用该转换结果，点击 “Copy slug” 按钮，将转换后的字符串复制到剪贴板，即可在其他地方粘贴使用。
@@ -23,4 +23,4 @@
   2. **文件管理** ：用于文件命名，生成符合文件系统规范的文件名，防止因特殊字符或空格导致文件无法正常创建、保存或访问等情况。
   3. **数据库与后端开发** ：作为 ID 的生成辅助，生成简洁、规范的字符串作为数据库中的唯一标识符或其他需要字符串标识的字段值，提高数据的一致性和可读性。
 
-通过使用 IT Tools - Slugify String 工具，开发者可以高效、便捷地生成适用于多种场景的安全字符串，提升开发效率和代码质量。
+通过使用 A Toolio - Slugify String 工具，开发者可以高效、便捷地生成适用于多种场景的安全字符串，提升开发效率和代码质量。

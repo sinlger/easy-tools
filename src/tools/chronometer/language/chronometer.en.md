@@ -1,4 +1,4 @@
-# IT Tools Chronometer User Guide
+# A Toolio Chronometer User Guide
 
 ## Main Functions
 

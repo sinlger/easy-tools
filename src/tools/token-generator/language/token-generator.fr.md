@@ -1,7 +1,7 @@
-**Instructions pour le générateur de jetons IT Tools**
+**Instructions pour le générateur de jetons A Toolio**
 
 **Accéder à l'outil**
-1. **Saisir l'URL** : Tapez<https://it-tools.tech/token-generator>dans la barre d'adresses de votre navigateur pour accéder à la page.
+1. **Saisir l'URL** : Tapez<https://atoolio.com/token-generator>dans la barre d'adresses de votre navigateur pour accéder à la page.
 2. **Patienter pendant le chargement de la page** : Assurez - vous que la page est entièrement chargée et que tous les éléments comme les options et les boutons sont correctement affichés.
 
 **Fonctions de base et opérations**

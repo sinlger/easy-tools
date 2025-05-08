@@ -1,7 +1,7 @@
-**Bruksanvisning for Token-generator på IT Tools**
+**Bruksanvisning for Token-generator på A Toolio**
 
 **Åpne verktøyet**
-1. **Skriv inn URL-adressen**: Skriv<https://it-tools.tech/token-generator>inn i adressefeltet i nettleseren for å komme til siden.
+1. **Skriv inn URL-adressen**: Skriv<https://atoolio.com/token-generator>inn i adressefeltet i nettleseren for å komme til siden.
 2. **Vent til siden er lastet**: Forsikre deg om at siden er fullstendig lastet, og at alle elementer som alternativer og knapper vises korrekt.
 
 **Grunnleggende funksjoner og bruk**

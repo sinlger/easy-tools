@@ -16,7 +16,7 @@ TOML to JSON is a convenient online conversion tool that can parse TOML - format
 
 ## 3. Steps to Use
 
-  1. Open the tool page ([https://it - tools.tech/toml - to - json](https://it-tools.tech/toml-to-json)).
+  1. Open the tool page ([https://atoolio.com/toml - to - json](https://atoolio.com/toml-to-json)).
   2. In the "Your TOML" text box on the left, paste or enter the TOML data you want to convert.
   3. The system will automatically convert the data, and the "JSON from your TOML" text box on the right will display the converted JSON data.
 

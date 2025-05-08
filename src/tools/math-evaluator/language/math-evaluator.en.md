@@ -18,6 +18,6 @@ The calculator supports the following commonly used mathematical functions:
 Users can combine numbers and these functions to construct more complex expressions for calculation, such as 2*sqrt(6), cos(π/3)+sin(π/6), etc.
 
 ## III. Usage Method
-- Open the [Online Math Calculator](https://it-tools.tech/math-evaluator) webpage.
+- Open the [Online Math Calculator](https://atoolio.com/math-evaluator) webpage.
 - Input the mathematical expression you want to calculate in the input box.
 - After completing the input, the calculator will automatically compute and display the result.

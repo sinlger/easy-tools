@@ -1,8 +1,8 @@
-# IT Tools - Base64 String Encoder/Decoder User Guide
+# A Toolio - Base64 String Encoder/Decoder User Guide
 
 ## Tool Overview
 
-The IT Tools Base64 string encoder/decoder is a handy online utility that allows for quick conversion between strings and their Base64 representations. It is designed to meet the needs of developers when dealing with data encoding and network transmission, offering a simple and efficient way to encode or decode strings.
+The A Toolio Base64 string encoder/decoder is a handy online utility that allows for quick conversion between strings and their Base64 representations. It is designed to meet the needs of developers when dealing with data encoding and network transmission, offering a simple and efficient way to encode or decode strings.
 
 ## Functionality
 

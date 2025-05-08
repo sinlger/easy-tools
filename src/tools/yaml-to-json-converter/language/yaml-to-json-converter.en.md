@@ -11,6 +11,6 @@ This is a convenient online tool for converting YAML - formatted documents into 
 
 ## Steps for Use
 
-  1. **Access the Tool** : Enter the URL [https://it - tools.tech/yaml - to - json - converter](https://it-tools.tech/yaml-to-json-converter) in your browser to open the YAML to JSON Converter page.
+  1. **Access the Tool** : Enter the URL [https://atoolio.com/yaml - to - json - converter](https://atoolio.com/yaml-to-json-converter) in your browser to open the YAML to JSON Converter page.
   2. **Input YAML** : In the “Your YAML” section, input the YAML code you wish to convert by copying and pasting it or typing it manually.
   3. **View Results** : Once you have entered the YAML code into the “Your YAML” section, the converter will automatically transform it into JSON format and instantly display the resulting JSON code in the “JSON from your YAML” section.

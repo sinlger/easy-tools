@@ -1,8 +1,8 @@
-# IT Tools - Guía de uso del codificador/decodificador de cadenas Base64
+# A Toolio - Guía de uso del codificador/decodificador de cadenas Base64
 
 ## Introducción al工具
 
-La herramienta de codificación/decodificación de cadenas Base64 de IT Tools es una utilidad en línea práctica que permite una rápida conversión entre cadenas de texto y sus representaciones Base64. Está diseñada para satisfacer las necesidades de los desarrolladores que trabajan con codificación de datos y transmisión de red, ofreciendo una manera sencilla y eficiente de codificar o decodificar cadenas de texto.
+La herramienta de codificación/decodificación de cadenas Base64 de A Toolio es una utilidad en línea práctica que permite una rápida conversión entre cadenas de texto y sus representaciones Base64. Está diseñada para satisfacer las necesidades de los desarrolladores que trabajan con codificación de datos y transmisión de red, ofreciendo una manera sencilla y eficiente de codificar o decodificar cadenas de texto.
 
 ## Funcionalidad
 

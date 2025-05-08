@@ -1,7 +1,7 @@
-# IT Tools - Color Picker: Color Format Conversion Tool User Guide
+# A Toolio - Color Picker: Color Format Conversion Tool User Guide
 
 ## 1. Tool Introduction
-IT Tools - Color Picker is an online color conversion tool that supports conversion between multiple color formats, including hexadecimal (\#RRGGBB), RGB (rgb(r,g,b)), HSL (hsl(h,s,l)), HWB, Lch, CMYK, and CSS color names. Whether you are a web developer, designer, or regular user, you can easily use this tool to convert color formats and match colors.
+A Toolio - Color Picker is an online color conversion tool that supports conversion between multiple color formats, including hexadecimal (\#RRGGBB), RGB (rgb(r,g,b)), HSL (hsl(h,s,l)), HWB, Lch, CMYK, and CSS color names. Whether you are a web developer, designer, or regular user, you can easily use this tool to convert color formats and match colors.
 
 ## 2. Core Function Explanation
 

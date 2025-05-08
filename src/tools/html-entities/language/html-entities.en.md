@@ -1,7 +1,7 @@
-# IT Tools - HTML Entities Usage Guide
+# A Toolio - HTML Entities Usage Guide
 
 ## Introduction
-This guide provides instructions on how to use the HTML Entities tool available at [IT Tools](https://it-tools.tech/html-entities). This handy online tool allows developers to easily escape or unescape HTML entities.
+This guide provides instructions on how to use the HTML Entities tool available at [A Toolio](https://atoolio.com/html-entities). This handy online tool allows developers to easily escape or unescape HTML entities.
 
 ## Features
 

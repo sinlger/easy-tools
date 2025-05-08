@@ -41,7 +41,7 @@ The JSON Minifier Tool is an online utility designed to reduce the size of JSON 
 
 ## 4. How to Use
 
-  * Open the JSON Minifier Tool web page ([https://it - tools.tech/json - minify](https://it-tools.tech/json-minify)).
+  * Open the JSON Minifier Tool web page ([https://atoolio.com/json-minify](https://atoolio.com/json-minify)).
   * Paste or type the original JSON data that needs to be minified into the input area.
   * Wait for the tool to automatically complete the minification process. The minified JSON data will be displayed in the output area.
   * Click the copy button on the right side of the output area to copy the minified JSON data to the clipboard.

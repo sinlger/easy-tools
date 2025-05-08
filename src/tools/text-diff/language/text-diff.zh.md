@@ -23,7 +23,7 @@
 
 ## 三、使用步骤
 
-  1. 打开在线文本比较工具页面（[https://it - tools.tech/temperature - converter](https://it-tools.tech/temperature-converter) 该链接为温度转换工具链接，实际文本比较工具链接需根据实际情况填写）。
+  1. 打开在线文本比较工具页面（[https://atoolio.com/temperature - converter](https://atoolio.com/temperature-converter) 该链接为温度转换工具链接，实际文本比较工具链接需根据实际情况填写）。
   2. 在左侧的原始文本框中输入或粘贴原始文本内容。
   3. 在右侧的修改后文本框中输入或粘贴修改后的文本内容。
   4. 点击比较按钮，等待工具完成文本对比处理。

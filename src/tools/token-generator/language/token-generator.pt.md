@@ -1,7 +1,7 @@
-**Manual do gerador de tokens da IT Tools**
+**Manual do gerador de tokens da A Toolio**
 
 **Acessando a ferramenta**
-1. **Digite a URL**: Insira<https://it-tools.tech/token-generator>na barra de endereço do navegador para acessar a página.
+1. **Digite a URL**: Insira<https://atoolio.com/token-generator>na barra de endereço do navegador para acessar a página.
 2. **Aguarde o carregamento da página**: Certifique - se de que a página foi completamente carregada e que todos os elementos, como opções e botões, estão sendo exibidos corretamente.
 
 **Funcionalidades básicas e operações**

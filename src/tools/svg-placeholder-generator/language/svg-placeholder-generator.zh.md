@@ -29,7 +29,7 @@ SVG 占位符生成器是一个方便的在线工具，用于快速生成自定�
 
 ## 三、操作步骤
 
-  1. 打开 [SVG 占位符生成器网站](https://it-tools.tech/svg-placeholder-generator)
+  1. 打开 [SVG 占位符生成器网站](https://atoolio.com/svg-placeholder-generator)
   2. 根据需求设置占位符的宽度和高度。例如，想生成一个宽 800 像素、高 450 像素的占位符，在 “Width（in px）” 输入框中输入 “800”，在 “Height（in px）” 输入框中输入 “450”。
   3. 自定义背景颜色和文字颜色。若希望背景为淡蓝色（如 “#e6f7ff”），文字为深蓝色（如 “#1890ff”），则分别在对应的输入框中输入相应的颜色代码。
   4. 设置字体大小和自定义文本。假设字体大小为 20 像素，想显示文本的为 “Sample”，则在 “Font size” 输入框输入 “20”，在 “Custom text” 输入框输入 “Sample”。
