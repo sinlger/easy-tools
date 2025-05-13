@@ -25,7 +25,7 @@ for sub_dir in os.listdir(tools_folder):
             # 检查文件是否存在，不存在则创建
             if not os.path.exists(md_file_path):
                 with open(md_file_path, 'w', encoding='utf-8') as f:
-                    f.write("这是一个新创建的.md文件")
+                    f.write("")
                 print(f"已在 {language_dir_path} 中创建 {sub_dir}{i}.md 文件")
             else:
                 print(f"{md_file_path} 文件已存在，跳过创建")
